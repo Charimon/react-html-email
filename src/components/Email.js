@@ -13,13 +13,13 @@ export default function Email(props) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>{props.title}</title>
       </head>
-      <body style={{
+      <body style={Object.assign({
         width: '100%',
         margin: '0',
         padding: '0',
         WebkitTextSizeAdjust: '100%',
         MsTextSizeAdjust: '100%',
-      }}>
+      }, props.bodyStyle)}>
         <Box width="100%" height="100%" bgcolor={props.bgcolor}>
           <Item align="center" valign="top">
             <Box width="600" align="center" cellPadding={props.cellPadding} cellSpacing={props.cellSpacing} style={props.style}>
@@ -38,5 +38,6 @@ Email.propTypes = {
   cellPadding: PropTypes.number,
   cellSpacing: PropTypes.number,
   style: EmailPropTypes.style,
+  bodyStyle: EmailPropTypes.style,
   children: PropTypes.node,
 }
